@@ -1,11 +1,16 @@
+import { useState } from "react";
 import classes from "./ElevationButton.module.css";
 
 // button name is going to be in props
 function ElevationButton(props) {
+  const [buttonClicked, setButtonClicked] = useState(false);
+
+  function callback() {}
+
   return (
     <div>
-      <button className="" onClick={() => console.log(clickedButton)}>
-        button Name is going to in props
+      <button className="" onClick={callback}>
+        {props.name}
       </button>
     </div>
   );

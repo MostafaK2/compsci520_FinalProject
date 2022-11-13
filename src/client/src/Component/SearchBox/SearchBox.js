@@ -7,8 +7,8 @@ function SearchBox(props) {
     <div>
       <input
         className="input"
-        id={"something"}
-        placeholder="name will come from props"
+        id="something"
+        placeholder={props.name}
         onChange={(elem) => setSearch(elem.target.value)}
       ></input>
     </div>
