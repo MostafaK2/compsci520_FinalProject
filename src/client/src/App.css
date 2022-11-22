@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.mainMap {
+  height: 90vh;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +39,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.ant-layout-sider {
+  background-color: #141414 !important;
+}
+
+.ant-layout-sider-trigger {
+  background-color: #141414 !important;
+}
+
+.ant-layout-header {
+  background-color: #24292E !important;
+}
+
+.input-field {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 16vw;
+}
+
+.ant-radio-wrapper {
+  color: white;
+  width: 16vw;
+  margin-bottom: 1em;
+}
+
+.ant-slider {
+  margin: 2em;
+  width: 16vw;
+  /* margin-left: 2em; */
+}
+
+.ant-slider-rail{
+  background-color: white !important;
+}
+
+.field_text {
+  color: white;
 }
