@@ -13,7 +13,7 @@ export const checkApi = (data) =>
     headers: headers,
   })
     .then((res) => {
-      print(res);
+      console.log(res);
     })
     .catch((error) => {
       return "error";
@@ -24,7 +24,7 @@ export const getMinPath = (data) =>
     headers: headers,
   })
     .then((res) => {
-      print(res);
+      console.log(res);
     })
     .catch((error) => {
         console.log(error)
