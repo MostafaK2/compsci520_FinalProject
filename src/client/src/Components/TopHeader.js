@@ -9,5 +9,7 @@ export const TopHeader = () => (
       padding: 0,
       height: "10vh",
     }}
-  />
+  >
+    <p className="header_name">520_SweSquad | ELeNa</p>
+  </Header>
 );

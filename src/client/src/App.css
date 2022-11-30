@@ -78,3 +78,24 @@
 .field_text {
   color: white;
 }
+
+.visible {
+  display: contents;
+}
+
+.invisible {
+  display: none;
+}
+
+.feature_block {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.header_name {
+  color: white;
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 0;
+  margin-left: 1em;
+}
