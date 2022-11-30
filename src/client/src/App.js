@@ -4,11 +4,13 @@ import { Layout } from "antd";
 import { Map } from "./Components/Map";
 import { TopHeader } from "./Components/TopHeader";
 import { SideHeader } from "./Components/SideHeader";
+import { Container } from "./Store/Provider";
 
 const { Content } = Layout;
 
 function App() {
   return (
+    <Container.Provider>
     <div className="App">
       <Layout>
         <TopHeader/>
@@ -20,6 +22,7 @@ function App() {
         </Layout>
       </Layout>
     </div>
+    </Container.Provider>
   );
 }
 

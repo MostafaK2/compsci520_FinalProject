@@ -1,10 +1,11 @@
 import { Input, Button, Radio, Slider } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import {Container } from "../Store/Provider";
 
 export const InputFields = () => {
   const [value, setValue] = useState(1);
-  const [inputValue, setInputValue] = useState(1);
+  const [inputValue, setInputValue] = useState(0);
 
   const onChange = (e) => {
     setValue(e.target.value);
@@ -14,11 +15,13 @@ export const InputFields = () => {
     setInputValue(newValue);
   };
 
+  const container = Container.useContainer()
+
   return (
     <div>
       <div className="feature_block">
-        <Input placeholder="Start" className="input-field" />
-        <Input placeholder="Destination" className="input-field" />
+        <Input placeholder="Start" className="input-field" onChange={container.callStart}/>
+        <Input placeholder="Destination" className="input-field" onChange={container.callEnd}/>
       </div>
       <div className="feature_block">
         <Slider
