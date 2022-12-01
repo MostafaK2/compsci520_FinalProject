@@ -16,8 +16,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 export const Map = () => {
 
   const container = Container.useContainer();
-
-  console.log(container.start, container.end)
+  console.log(container.startCoordinate, container.endCoordinate);
 
   return (
     <MapContainer

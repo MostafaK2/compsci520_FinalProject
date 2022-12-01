@@ -1,12 +1,18 @@
 import { createContainer } from "unstated-next"
 import { useState } from "react"
 
-function useCounter(initialState = {start: "", end: ""}) {
-  let [start, setStart] = useState(initialState.start)
-  let [end, setEnd] = useState(initialState.end)
-  let callStart = (e) => setStart(e.target.value)
-  let callEnd = (e) => setEnd(e.target.value)
-  return { start, end, callStart, callEnd }
+function useCounter(initialState = {startResults: "", endResults: ""}) {
+
+  let [startCoordinate, setStartCoordinate] = useState(initialState.startResults)
+  let [endCoordinate, setEndCoordinate] = useState(initialState.endResults)
+
+  let callStart = (value) => {
+    setStartCoordinate(value)
+  }
+  let callEnd = (value) => {
+    setEndCoordinate(value);
+  }
+  return { startCoordinate, endCoordinate, callStart, callEnd }
 }
 
 export const Container = createContainer(useCounter)

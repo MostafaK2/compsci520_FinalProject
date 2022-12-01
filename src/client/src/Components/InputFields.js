@@ -1,11 +1,18 @@
-import { Input, Button, Radio, Slider } from "antd";
+import { Button, Radio, Slider, Select } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useState } from "react";
-import {Container } from "../Store/Provider";
+import { Container } from "../Store/Provider";
+import { getMatchedResults } from "../Services/Autocomplete"; 
 
 export const InputFields = () => {
   const [value, setValue] = useState(1);
   const [inputValue, setInputValue] = useState(0);
+  const [startValue, setStartValue] = useState();
+  const [startData, setStartData] = useState([]);
+  const [endValue, setEndValue] = useState();
+  const [endData, setEndData] = useState([]);
+
+  const container = Container.useContainer();
 
   const onChange = (e) => {
     setValue(e.target.value);
@@ -15,13 +22,73 @@ export const InputFields = () => {
     setInputValue(newValue);
   };
 
-  const container = Container.useContainer()
+  const handleStartSearch = async (newValue) => {
+    if (newValue) {
+        const results = await getMatchedResults(newValue);
+        setStartData(results);
+    } else {
+      setStartData([]);
+    }
+  };
+  const handleStartChange = (newValue) => {
+    setStartValue(newValue);
+  };
+
+  const handleEndSearch = async (newValue) => {
+    if (newValue) {
+        const results = await getMatchedResults(newValue);
+        setEndData(results);
+    } else {
+      setEndData([]);
+    }
+  };
+  const handleEndChange = (newValue) => {
+    setEndValue(newValue);
+  };
+
+  const handleStartSelect = (value) => {
+    container.callStart(value);
+  }
+
+  const handleEndSelect = (value) => {
+    container.callEnd(value);
+  }
 
   return (
     <div>
       <div className="feature_block">
-        <Input placeholder="Start" className="input-field" onChange={container.callStart}/>
-        <Input placeholder="Destination" className="input-field" onChange={container.callEnd}/>
+        <Select
+          showSearch
+          value={startValue}
+          placeholder="Start"
+          showArrow={false}
+          filterOption={false}
+          onSearch={handleStartSearch}
+          onChange={handleStartChange}
+          onSelect={handleStartSelect}
+          className="input-field"
+          notFoundContent={null}
+          options={(startData || []).map((d) => ({
+            value: d.x + "," + d.y,
+            label: d.label,
+          }))}
+        />
+         <Select
+          showSearch
+          value={endValue}
+          placeholder="Destination"
+          showArrow={false}
+          filterOption={false}
+          onSearch={handleEndSearch}
+          onChange={handleEndChange}
+          onSelect={handleEndSelect}
+          className="input-field"
+          notFoundContent={null}
+          options={(endData || []).map((d) => ({
+            value: d.x + "," + d.y,
+            label: d.label,
+          }))}
+        />
       </div>
       <div className="feature_block">
         <Slider
