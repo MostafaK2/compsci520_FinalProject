@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Polyline } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
@@ -16,6 +16,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 export const Map = () => {
   const [zoomLocation, setZoomLocation] = useState([42.3754, -72.5193]);
   const [markers, setMarkers] = useState({ startMarker: [], endMarker: [] });
+  const [polyline, setPolyline] = useState([]);
   const container = Container.useContainer();
 
   useEffect(() => {
@@ -25,11 +26,15 @@ export const Map = () => {
     newMarker.startMarker = container.startCoordinate;
     newMarker.endMarker = container.endCoordinate;
     setMarkers(newMarker);
+    setPolyline(container.path);
   }, [
     container.newLocation,
     container.startCoordinate,
     container.endCoordinate,
+    container.path
   ]);
+
+  const blackOptions = { color: 'black' }
 
   return (
     <MapContainer
@@ -57,6 +62,7 @@ export const Map = () => {
           position={markers.endMarker}
         />
       )}
+      <Polyline pathOptions={blackOptions} positions={polyline} />
     </MapContainer>
   );
 };

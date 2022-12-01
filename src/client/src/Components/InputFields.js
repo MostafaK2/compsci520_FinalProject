@@ -3,6 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Container } from "../Store/Provider";
 import { getMatchedResults } from "../Services/Autocomplete"; 
+import { getFakePath } from "../Services/services"; 
 
 export const InputFields = () => {
   const [value, setValue] = useState(1);
@@ -53,6 +54,11 @@ export const InputFields = () => {
   const handleEndSelect = (value) => {
     container.callEnd(value);
   }
+
+  const sendData = async(e) => {
+    const path = await getFakePath(container.startCoordinate, container.endCoordinate, inputValue, value)
+    container.callPath(path)
+  } 
 
   return (
     <div>
@@ -106,7 +112,7 @@ export const InputFields = () => {
           <Radio value={3}>No Elevation</Radio>
         </Radio.Group>
       </div>
-      <Button type="primary" icon={<SearchOutlined />}>
+      <Button type="primary" icon={<SearchOutlined />} onClick={sendData}>
         Search
       </Button>
     </div>
