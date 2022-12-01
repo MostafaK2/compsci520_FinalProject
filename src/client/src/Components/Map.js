@@ -31,7 +31,8 @@ export const Map = () => {
     container.newLocation,
     container.startCoordinate,
     container.endCoordinate,
-    container.path
+    container.path,
+    markers
   ]);
 
   const blackOptions = { color: 'black' }
@@ -48,14 +49,14 @@ export const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {markers.startMarker.length == 0 ? (
+      {markers.startMarker.length === 0 ? (
         <></>
       ) : (
         <Marker
           position={markers.startMarker}
         />
       )}
-      {markers.endMarker.length == 0 ? (
+      {markers.endMarker.length === 0 ? (
         <></>
       ) : (
         <Marker
