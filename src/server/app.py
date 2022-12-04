@@ -9,17 +9,17 @@ def hello_world():
 
 @app.route('/getpath')
 def get_path():
-    src = 0
-    dest = 0
+    src = []
+    dest = []
     flag = 0
     percent = 0
     for arg in request.args:
         if(arg == "flag"):
             flag = request.args[arg]
         elif(arg == "src"):
-            coor1 = request.args[arg].split(',')
+            src = request.args[arg].split(',')
         elif(arg == "dest"):
-            coor2 = request.args[arg].split(',')
+            dest = request.args[arg].split(',')
         else:
             percent = request.args[arg]
     path = get_shortest_path(src, dest)
