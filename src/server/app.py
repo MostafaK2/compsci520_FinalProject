@@ -1,13 +1,17 @@
 from flask import Flask, request
 from controller.GraphUtils import get_shortest_path
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/')
 def hello_world():
     return 'ELeNA Server'
 
-@app.route('/getpath')
+@app.route('/metadata')
+@cross_origin()
 def get_path():
     src = []
     dest = []

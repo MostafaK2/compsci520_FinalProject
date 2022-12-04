@@ -3,7 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Container } from "../Store/Provider";
 import { getMatchedResults } from "../Services/Autocomplete"; 
-import { getFakePath } from "../Services/services"; 
+import { getMetaData } from "../Services/services"; 
 
 export const InputFields = () => {
   const [value, setValue] = useState(1);
@@ -56,7 +56,7 @@ export const InputFields = () => {
   }
 
   const sendData = async(e) => {
-    const path = await getFakePath(container.startCoordinate, container.endCoordinate, inputValue, value)
+    const path = await getMetaData(container.startCoordinate, container.endCoordinate, inputValue, value)
     container.callPath(path)
   } 
 

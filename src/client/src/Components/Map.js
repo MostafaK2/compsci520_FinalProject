@@ -5,6 +5,7 @@ import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import { Container } from "../Store/Provider";
 import { useState, useEffect } from "react";
+import hash from 'object-hash';
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -17,22 +18,25 @@ export const Map = () => {
   const [zoomLocation, setZoomLocation] = useState([42.3754, -72.5193]);
   const [markers, setMarkers] = useState({ startMarker: [], endMarker: [] });
   const [polyline, setPolyline] = useState([]);
+  const [keyValue, setKeyValue] = useState("initial");
   const container = Container.useContainer();
 
   useEffect(() => {
     setZoomLocation(container.newLocation);
-    console.log(markers);
+    // console.log(markers);
     let newMarker = markers;
     newMarker.startMarker = container.startCoordinate;
     newMarker.endMarker = container.endCoordinate;
     setMarkers(newMarker);
     setPolyline(container.path);
+    setKeyValue(hash({'marker': newMarker, 'path': polyline}));
   }, [
     container.newLocation,
     container.startCoordinate,
     container.endCoordinate,
     container.path,
-    markers
+    markers,
+    polyline
   ]);
 
   const blackOptions = { color: 'black' }
@@ -43,7 +47,7 @@ export const Map = () => {
       zoom={10}
       scrollWheelZoom={false}
       className="mainMap"
-      key={`${zoomLocation[0]}-${zoomLocation[1]}`}
+      key={keyValue}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const HTTP = axios.create({
-  baseURL: "https://localhost:5000",
+  baseURL: "http://localhost:5000",
 });
 
 const headers = {
@@ -39,15 +39,14 @@ export const getMinPath = (data) =>
     });
 
 export const getMetaData = (src, dest, flag, percent) =>
-  HTTP.post("/metadata", null, { params : {
-    src: src,
-    dest: dest, 
+  HTTP.get("/metadata", { params : {
+    src: src.toString(),
+    dest: dest.toString(), 
     flag: flag, 
     percent: percent
   }})
     .then((res) => {
-      let data = res.data;
-      return data["geometry"]
+      return res.data
     })
     .catch((error) => {
         console.log(error)

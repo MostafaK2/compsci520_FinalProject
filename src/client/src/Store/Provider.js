@@ -30,10 +30,18 @@ function useCounter(
   };
 
   let callPath = (value) => {
-    value.forEach(elem => {
-      elem.reverse()
-    });
-    setPath(value);
+    if(value === "error"){
+       return;
+    }
+    path = []
+    value.forEach(points => {
+      points['geometry'].forEach(elem => {
+        elem.reverse()
+      })
+      path.push(...points['geometry']);
+    })
+    console.log(path)
+    setPath(path);
   };
 
   return { startCoordinate, endCoordinate, newLocation, path, callStart, callEnd, callPath };

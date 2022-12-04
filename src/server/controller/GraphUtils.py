@@ -12,15 +12,6 @@ def getDistance(G, src, dest):
 def get_node(G, point):
     return ox.nearest_nodes(G, float(point[0]), float(point[1]))
 
-def route_to_feature(idx, route):
-    return {
-        'type': 'Feature',
-        'geometry': route,
-        'properties': {
-            'name': f'Route #{idx}'
-        }
-    }
-
 def get_shortest_path(src_point, dest_point):
     # print(src, dest)
     G = ox.graph_from_point((float(src_point[0]), float(src_point[1])), dist=1000, network_type="drive")
