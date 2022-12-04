@@ -11,6 +11,7 @@ const headers = {
 export const checkApi = (data) =>
   HTTP.post("/", JSON.stringify(data), {
     headers: headers,
+
   })
     .then((res) => {
       console.log(res);
@@ -20,8 +21,9 @@ export const checkApi = (data) =>
     });
 
 export const getMinPath = (data) =>
-  HTTP.post("/getpath", JSON.stringify(data), {
+  HTTP.post("/path", JSON.stringify(data), {
     headers: headers,
+
   })
     .then((res) => {
       const polygon = [
@@ -30,6 +32,22 @@ export const getMinPath = (data) =>
         [51.52, -0.12],
       ]
       return polygon
+    })
+    .catch((error) => {
+        console.log(error)
+      return "error";
+    });
+
+export const getMetaData = (src, dest, flag, percent) =>
+  HTTP.post("/metadata", null, { params : {
+    src: src,
+    dest: dest, 
+    flag: flag, 
+    percent: percent
+  }})
+    .then((res) => {
+      let data = res.data;
+      return data["geometry"]
     })
     .catch((error) => {
         console.log(error)
