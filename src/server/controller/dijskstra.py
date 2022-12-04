@@ -11,10 +11,10 @@ class Pair(object):
     def __lt__(self, other):
         return self.weight < other.weight
 
-G = ox.graph_from_place('Sutherland Shire Council', network_type='drive')
+# G = ox.graph_from_place('Sutherland Shire Council', network_type='drive')
 
-print("Shortest Paths Using In-Built Libraries")
-print(next(ox.k_shortest_paths(G, 1839271812, 668727077, 1, weight = 'length')))
+# print("Shortest Paths Using In-Built Libraries")
+# print(next(ox.k_shortest_paths(G, 1839271812, 668727077, 1, weight = 'length')))
 
 def dijkstra(G, src, dest):
     visited = set()
@@ -34,5 +34,3 @@ def dijkstra(G, src, dest):
         for src, next, length in G.edges(object.node, data=True):
             newObject = Pair(next, length['length'] + object.weight, False, object.path + " " + str(next))
             heapq.heappush(pq, newObject)
-
-dijkstra(G, 1839271812, 668727077)
