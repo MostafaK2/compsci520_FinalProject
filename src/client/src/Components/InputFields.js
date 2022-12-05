@@ -61,7 +61,7 @@ export const InputFields = () => {
   } 
 
   return (
-    <div>
+    <div data-testid="input-fields">
       <div className="feature_block">
         <Select
           showSearch
@@ -102,17 +102,24 @@ export const InputFields = () => {
           max={100}
           onChange={onChangeSlider}
           value={typeof inputValue === "number" ? inputValue : 0}
+          
         />
         <h4 className="field_text"> {inputValue} % Away from Shortest Path</h4>
       </div>
       <div className="feature_block">
-        <Radio.Group onChange={onChange} value={value} className="radio_item">
-          <Radio value={1}>Maximize Elevation</Radio>
-          <Radio value={2}>Minimize Elevation</Radio>
-          <Radio value={3}>No Elevation</Radio>
+        <Radio.Group
+          data-testid="options"
+          testValue= {value}
+          onChange={onChange}
+          value={value}
+          className="radio_item"
+        >
+          <Radio data-testid = "max" value={1}>Maximize Elevation</Radio>
+          <Radio data-testid = "min" value={2}>Minimize Elevation</Radio>
+          <Radio data-testid = "no-elev" value={3}>No Elevation</Radio>
         </Radio.Group>
       </div>
-      <Button type="primary" icon={<SearchOutlined />} onClick={sendData}>
+      <Button data-testid = "button" type="primary" icon={<SearchOutlined />} onClick={sendData}>
         Search
       </Button>
     </div>

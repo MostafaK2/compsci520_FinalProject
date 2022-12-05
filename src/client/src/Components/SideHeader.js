@@ -14,12 +14,17 @@ export const SideHeader = () => {
   };
   return (
     <Sider
+      data-testid="sider"
       collapsible
       collapsed={collapsed}
       onCollapse={(value) => doCollapse(value)}
       width={300}
     >
-      <div className={isVisible ? "visible" : "invisible"}>
+      <div
+        
+        data-testid="checkVisible"
+        className={isVisible ? "visible" : "invisible"}
+      >
         <InputFields />
       </div>
     </Sider>
