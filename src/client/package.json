@@ -16,11 +16,7 @@
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.1.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
-    "ts-jest": "^29.0.3",
-=======
     "unstated-next": "^1.1.0",
->>>>>>> 54f526fa9ee63070447b3a2046ca3087fec8754f
     "web-vitals": "^2.1.0"
   },
   "scripts": {

@@ -63,17 +63,6 @@ export const InputFields = () => {
   return (
     <div data-testid="input-fields">
       <div className="feature_block">
-<<<<<<< HEAD
-        <Input
-          placeholder="Start"
-          className="input-field"
-          data-testid="start"
-        />
-        <Input
-          placeholder="Destination"
-          className="input-field"
-          data-testid="destination"
-=======
         <Select
           showSearch
           value={startValue}
@@ -105,7 +94,6 @@ export const InputFields = () => {
             value: d.x + "," + d.y,
             label: d.label,
           }))}
->>>>>>> 54f526fa9ee63070447b3a2046ca3087fec8754f
         />
       </div>
       <div className="feature_block">
@@ -131,11 +119,7 @@ export const InputFields = () => {
           <Radio data-testid = "no-elev" value={3}>No Elevation</Radio>
         </Radio.Group>
       </div>
-<<<<<<< HEAD
-      <Button data-testid="button" type="primary" icon={<SearchOutlined />}>
-=======
-      <Button type="primary" icon={<SearchOutlined />} onClick={sendData}>
->>>>>>> 54f526fa9ee63070447b3a2046ca3087fec8754f
+      <Button data-testid = "button" type="primary" icon={<SearchOutlined />} onClick={sendData}>
         Search
       </Button>
     </div>
