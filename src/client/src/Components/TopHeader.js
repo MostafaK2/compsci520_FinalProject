@@ -4,6 +4,7 @@ const { Header } = Layout;
 
 export const TopHeader = () => (
   <Header
+    data-testid = "topHeader"
     className="site-layout-sub-header-background"
     style={{
       padding: 0,
