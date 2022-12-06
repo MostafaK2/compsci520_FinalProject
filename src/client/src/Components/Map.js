@@ -27,7 +27,7 @@ export const Map = () => {
     let newMarker = markers;
     newMarker.startMarker = container.startCoordinate;
     newMarker.endMarker = container.endCoordinate;
-    console.log(newMarker)
+    // console.log(newMarker)
     setMarkers(newMarker);
     setPolyline(container.path);
     setKeyValue(hash({'marker': newMarker, 'path': polyline}));

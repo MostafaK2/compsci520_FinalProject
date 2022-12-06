@@ -20,13 +20,24 @@ function useCounter(
     let res = value.split(",").map(Number);
     res.reverse();
     setStartCoordinate(res);
-    setNewLocation(res);
+    if(endCoordinate.length === 0) {
+      setNewLocation(res);
+    }
+    else {
+      setNewLocation([(res[0]+endCoordinate[0])/2, (res[1]+endCoordinate[1])/2]);
+    }
+    
   };
   let callEnd = (value) => {
     let res = value.split(",").map(Number);
     res.reverse();
     setEndCoordinate(res);
-    setNewLocation(res);
+    if(startCoordinate.length === 0) {
+      setNewLocation(res);
+    }
+    else {
+      setNewLocation([(startCoordinate[0]+res[0])/2, (startCoordinate[1]+res[1])/2]);
+    }
   };
 
   let callPath = (value) => {
@@ -44,7 +55,8 @@ function useCounter(
       }
       // path = points['geometry']
     })
-    console.log(path)
+    // let sortedData = []
+    // sortedData = path.sort((a, b) => b[1] - a[1])
     setPath(path);
   };
 

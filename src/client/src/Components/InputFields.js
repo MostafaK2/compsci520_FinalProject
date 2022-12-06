@@ -12,6 +12,7 @@ export const InputFields = () => {
   const [startData, setStartData] = useState([]);
   const [endValue, setEndValue] = useState();
   const [endData, setEndData] = useState([]);
+  const [isDisabled, setDisabled] = useState(false);
 
   const container = Container.useContainer();
 
@@ -56,8 +57,10 @@ export const InputFields = () => {
   }
 
   const sendData = async(e) => {
+    setDisabled(true);
     const path = await getMetaData(container.startCoordinate, container.endCoordinate, inputValue, value)
-    container.callPath(path)
+    container.callPath(path);
+    setDisabled(false);
   } 
 
   return (
@@ -119,7 +122,7 @@ export const InputFields = () => {
           <Radio data-testid = "no-elev" value={3}>No Elevation</Radio>
         </Radio.Group>
       </div>
-      <Button data-testid = "button" type="primary" icon={<SearchOutlined />} onClick={sendData}>
+      <Button data-testid = "button" type="primary" icon={<SearchOutlined />} onClick={sendData} disabled={isDisabled}>
         Search
       </Button>
     </div>
