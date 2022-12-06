@@ -24,6 +24,12 @@ def convert_linestring(linestring):
             all_points.append((line[0], line[1]))
     return all_points
 
+def get_lat_long(G, path):
+    coord = []
+    for node in path:
+        coord.append((G.nodes[node]['y'], G.nodes[node]['x']))
+    return coord
+
 def get_shortest_path(src_point, dest_point):
     # print(src, dest)
     graph = get_graph("./data/amherst.graphml")
@@ -31,15 +37,16 @@ def get_shortest_path(src_point, dest_point):
     dest_node = get_node(graph, dest_point)
     details = nx.to_dict_of_dicts(graph)
     route = ox.shortest_path(graph, src_node, dest_node, weight="length")
-    # print(route)
-    routes = perform_bfs(graph, src_node, dest_node, 'travel_time')
-    # print(routes)
-    path = []
-    for point in routes:
-        for key in details[point].keys():
-            for index in details[point][key]:
-                my_dict = details[point][key][index]
-                if 'geometry' in my_dict.keys():
-                    my_dict['geometry'] = convert_linestring(my_dict['geometry'])
-                path.append(my_dict)
+    print(route)
+    routes = perform_bfs(graph, src_node, dest_node)
+    print(routes)
+    path = get_lat_long(graph, route)
+    # for point in routes:
+
+        # for key in details[point].keys():
+        #     for index in details[point][key]:
+        #         my_dict = details[point][key][index]
+        #         if 'geometry' in my_dict.keys():
+        #             my_dict['geometry'] = convert_linestring(my_dict['geometry'])
+        #         path.append(my_dict)
     return path
