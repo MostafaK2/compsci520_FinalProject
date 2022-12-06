@@ -35,10 +35,14 @@ function useCounter(
     }
     path = []
     value.forEach(points => {
-      points['geometry'].forEach(elem => {
-        elem.reverse()
-      })
-      path.push(...points['geometry']);
+      if("geometry" in points) {
+        points['geometry'].forEach(elem => {
+          elem.reverse()
+        })
+        path.push(...points['geometry']);
+        // path = points['geometry']
+      }
+      // path = points['geometry']
     })
     console.log(path)
     setPath(path);

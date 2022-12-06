@@ -26,9 +26,8 @@ def get_path():
             dest = request.args[arg].split(',')
         else:
             percent = request.args[arg]
-    path = get_shortest_path(src, dest)
+    path = get_shortest_path((float(src[0]), float(src[1])), (float(dest[0]), float(dest[1])))
     return path
 
- 
 if __name__ == '__main__':
     app.run()

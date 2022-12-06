@@ -40,8 +40,8 @@ export const getMinPath = (data) =>
 
 export const getMetaData = (src, dest, flag, percent) =>
   HTTP.get("/metadata", { params : {
-    src: src.toString(),
-    dest: dest.toString(), 
+    src: src[1].toString() + "," + src[0].toString(),
+    dest: dest[1].toString() + "," + dest[0].toString(), 
     flag: flag, 
     percent: percent
   }})
