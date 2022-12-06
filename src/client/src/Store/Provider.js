@@ -44,20 +44,12 @@ function useCounter(
     if(value === "error"){
        return;
     }
-    path = []
-    value.forEach(points => {
-      if("geometry" in points) {
-        points['geometry'].forEach(elem => {
-          elem.reverse()
-        })
-        path.push(...points['geometry']);
-        // path = points['geometry']
-      }
-      // path = points['geometry']
-    })
-    // let sortedData = []
-    // sortedData = path.sort((a, b) => b[1] - a[1])
-    setPath(path);
+    // path = []
+    // value.forEach(points => {
+    //   path.push([points[1], points[0]])
+    // })
+    // console.log(path)
+    setPath(value);
   };
 
   return { startCoordinate, endCoordinate, newLocation, path, callStart, callEnd, callPath };
