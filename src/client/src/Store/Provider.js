@@ -3,8 +3,8 @@ import { useState } from "react";
 
 function useCounter(
   initialState = {
-    startResults: [42.3754, -72.5193],
-    endResults: [42.3754, -72.5193],
+    startResults: [],
+    endResults: [],
     newLocation: [42.3754, -72.5193],
     path: []
   }

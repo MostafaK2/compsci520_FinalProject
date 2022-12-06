@@ -45,7 +45,7 @@ export const Map = () => {
   return (
     <MapContainer
       center={zoomLocation}
-      zoom={10}
+      zoom={13}
       scrollWheelZoom={false}
       className="mainMap"
       key={keyValue}

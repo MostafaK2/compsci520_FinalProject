@@ -31,9 +31,9 @@ def get_shortest_path(src_point, dest_point):
     dest_node = get_node(graph, dest_point)
     details = nx.to_dict_of_dicts(graph)
     route = ox.shortest_path(graph, src_node, dest_node, weight="length")
-    print(route)
+    # print(route)
     routes = perform_bfs(graph, src_node, dest_node, 'travel_time')
-    print(routes)
+    # print(routes)
     path = []
     for point in routes:
         for key in details[point].keys():
