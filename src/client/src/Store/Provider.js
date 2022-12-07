@@ -17,6 +17,10 @@ function useCounter(
   let [path, setPath] = useState(initialState.path);
 
   let callStart = (value) => {
+    if(value.length === 0) {
+      reset();
+      return;
+    }
     let res = value.split(",").map(Number);
     res.reverse();
     setStartCoordinate(res);
@@ -29,6 +33,10 @@ function useCounter(
     
   };
   let callEnd = (value) => {
+    if(value.length === 0) {
+      reset();
+      return;
+    }
     let res = value.split(",").map(Number);
     res.reverse();
     setEndCoordinate(res);
@@ -40,10 +48,17 @@ function useCounter(
     }
   };
 
+  const reset = () => {
+    setStartCoordinate(initialState.startResults);
+    setEndCoordinate(initialState.endResults);
+    setNewLocation(initialState.newLocation);
+    setPath(initialState.path);
+  }
+
   let callPath = (value) => {
-    if(value === "error"){
-       return;
-    }
+    // if(value === "error"){
+    //    return;
+    // }
     // path = []
     // value.forEach(points => {
     //   path.push([points[1], points[0]])
