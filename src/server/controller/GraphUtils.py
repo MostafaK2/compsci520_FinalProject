@@ -18,18 +18,24 @@ def getTotalElevation(G, path):
 
 def getPath(par, src, dest):
     path = []
-    n = end
+    n = dest
     path.append(n)
-    while n != start:
+    while n != src:
         n = par[n]
         path.append(n)
     return path[::-1]
 
+def getPathDistance(G, path):
+    total_length = 0
+    for i in range(len(path) - 1):
+        total_length += getDistance(G, path[i], path[i + 1])
+    return total_length
+
 def getDistance(G, src, dest):
-    return G.edges[src, dest, 0]['distance']
+    return G.edges[src, dest, 0]['length']
 
 def get_node(G, point):
-    return ox.get_nearest_nodes(G, float(point[0]), float(point[1]))
+    return ox.nearest_nodes(G, float(point[0]), float(point[1]))
 
 def get_graph(filename):
     G = ox.load_graphml(filename)

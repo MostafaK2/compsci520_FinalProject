@@ -25,10 +25,10 @@ def dijkstra(G, src, dest):
     heapq.heappush(pq, new)
     while len(pq) != 0:
         object = heapq.heappop(pq)
-        print("path print check ",object.path)
+        # print("path print check ",object.path)
         if object.node == dest:
-            print("found destination")
-            print("path", object.path)
+            # print("found destination")
+            # print("path", object.path)
             break
         if object.visited == True:
             continue
@@ -36,3 +36,6 @@ def dijkstra(G, src, dest):
         for src, next, length in G.edges(object.node, data=True):
             newObject = Pair(next, length['length'] + object.weight, False, object.path + " " + str(next))
             heapq.heappush(pq, newObject)
+    return object.path, object.weight
+
+# print(dijkstra(G, 1839271812, 668727077))
