@@ -59,7 +59,7 @@ warnings.filterwarnings('ignore')
 
 #     return res_path, res_elev, gu.getPathDistance(G, res_path)
 
-def get_from_djikstra(G, start, end, percent, min_dis, max_ele=True):
+def dijkstra_elev(G, start, end, percent, min_dis, max_ele=True):
     # min_distance = gu.getPathDistance(G, route)
     print("min_dis ", min_distance)
     percent += 100
