@@ -35,7 +35,7 @@ def get_path():
         save_graph(city + ", " + state + ", " + country, file_name)
 
     path = get_shortest_path((float(src[0]), float(src[1])), (float(dest[0]), float(dest[1])), file_name)
-    return path
+    return path, 0.0, 0.0
 
 if __name__ == '__main__':
     app.run()
