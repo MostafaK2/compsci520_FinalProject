@@ -1,4 +1,6 @@
 from controller.bfs import perform_bfs
+from dijkstraElev import dijkstra_elev
+
 import osmnx as ox
 import networkx as nx
 import numpy as np
@@ -54,6 +56,16 @@ def get_lat_long(G, path):
         coord.append((G.nodes[node]['y'], G.nodes[node]['x']))
     return coord
 
+def get_shortest_path(src_point, dest_point, percent, flag, filename):
+    min_dis['distance'] = get_shortest_path(src_point, dest_point, filename)
+    if flag == 1:
+        max_elevation = True
+    else:
+        max_elevation = False
+    res = dijkstra_elev(G, start, end, percent, min_dis, max_elevation)
+    res['path'] = get_lat_long(graph, res['path'])
+    return res
+
 def get_shortest_path(src_point, dest_point, filename):
     # print(src, dest)
     graph = get_graph(filename)
@@ -61,14 +73,21 @@ def get_shortest_path(src_point, dest_point, filename):
     dest_node = get_node(graph, dest_point)
     details = nx.to_dict_of_dicts(graph)
     # print(details)
-    # route = ox.shortest_path(graph, src_node, dest_node, weight="length")
+    route = ox.shortest_path(graph, src_node, dest_node, weight="length")
+    
     # print(route)
+
     routes = perform_bfs(graph, src_node, dest_node)
     # print(routes)
     # for route in routes:
     #     print(details[route])
+    res = {}
+    res['distance'] = str(getPathDistance(graph, routes))
+    res['elevation'] = None
     path = get_lat_long(graph, routes)
-    return path
+    res['path'] = path
+
+    return res
 
 def get_details(src_point, dest_point):
     geolocator = Nominatim(user_agent="EleNa-server")
