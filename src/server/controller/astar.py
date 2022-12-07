@@ -5,11 +5,16 @@ import warnings
 warnings.filterwarnings('ignore')
 
 G = ox.graph_from_place('Sutherland Shire Council', network_type='drive')
+api_key = 'AIzaSyBZtVsQkxLlEp63rHfRCA1vXWSEverMKSs'
+G = ox.elevation.add_node_elevations(G, api_key, precision=3)
+G = ox.elevation.add_edge_grades(G, add_absolute=True, precision=3)
+# G_proj = ox.project_graph(G)
 print(G.nodes[1839271812])
 
 def compute_elevation(G, src, dest):
     if src == dest:
         return 0
+    
     return G.nodes[src]['elevation'] - G.nodes[dest]['elevation']
 
 def astar(G, src, dest, min_elev = None):
