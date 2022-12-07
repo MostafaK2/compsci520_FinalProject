@@ -1,5 +1,6 @@
 from flask import Flask, request
-from controller.GraphUtils import get_shortest_path
+from controller.GraphUtils import get_shortest_path, get_details
+from utility import save_graph, check_graph_present
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
@@ -26,7 +27,12 @@ def get_path():
             dest = request.args[arg].split(',')
         else:
             percent = request.args[arg]
-    path = get_shortest_path((float(src[0]), float(src[1])), (float(dest[0]), float(dest[1])))
+    city, state, country = get_details(src, dest)
+    file_name = "./data/"+(city+state+country).replace(' ', '')+".graphml"
+    if(check_graph_present(file_name) == False):
+        save_graph(city + ", " + state + ", " + country, file_name)
+
+    path = get_shortest_path((float(src[0]), float(src[1])), (float(dest[0]), float(dest[1])), file_name)
     return path
 
 if __name__ == '__main__':
