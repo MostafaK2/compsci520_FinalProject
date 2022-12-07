@@ -5,10 +5,10 @@ from dijkstra import dijkstra
 import warnings
 warnings.filterwarnings('ignore')
 
-G = ox.graph_from_place('Amherst', network_type='drive')
-api_key = 'AIzaSyBZtVsQkxLlEp63rHfRCA1vXWSEverMKSs'
-G = ox.elevation.add_node_elevations_google(G, api_key, precision=3)
-G = ox.elevation.add_edge_grades(G, add_absolute=True, precision=3)
+# G = ox.graph_from_place('Amherst', network_type='drive')
+# api_key = 'AIzaSyBZtVsQkxLlEp63rHfRCA1vXWSEverMKSs'
+# G = ox.elevation.add_node_elevations_google(G, api_key, precision=3)
+# G = ox.elevation.add_edge_grades(G, add_absolute=True, precision=3)
 
 # def dijkstra_elev(G, start, target, percent_dis, max_elevation = True):
 #     min_dis = gu.getPathDistance(G, ox.shortest_path(G, start, target, weight="length"))
@@ -59,8 +59,8 @@ G = ox.elevation.add_edge_grades(G, add_absolute=True, precision=3)
 
 #     return res_path, res_elev, gu.getPathDistance(G, res_path)
 
-def get_from_djikstra(G, start, end, percent, max_ele=True):
-    min_distance = gu.getPathDistance(G, ox.shortest_path(G, start, end, weight="length"))
+def get_from_djikstra(G, start, end, percent, min_dis, max_ele=True):
+    # min_distance = gu.getPathDistance(G, route)
     print("min_dis ", min_distance)
     percent += 100
     max_path_length = min_distance * (percent/100)
@@ -123,12 +123,16 @@ def get_from_djikstra(G, start, end, percent, max_ele=True):
     else:
         path = possible_paths[min_path_len]
 
-    return path, gu.getPathDistance(G, path), gu.getTotalElevation(G, path)
+    res = {}
+    res['path'] = path
+    res['elevation'] = str(gu.getTotalElevation(G, path))
+    res['distance'] = str(gu.getPathDistance(G, path))
+    return res
 
-src = gu.get_node(G, (-72.5279153, 42.3497246))
-dest = gu.get_node(G, (-72.51976, 42.374569))
-# print(dijkstra_elev(G, src, dest, 20, True))
-print(get_from_djikstra(G, src, dest, 20, True))
+# src = gu.get_node(G, (-72.5279153, 42.3497246))
+# dest = gu.get_node(G, (-72.51976, 42.374569))
+# # print(dijkstra_elev(G, src, dest, 20, True))
+# print(get_from_djikstra(G, src, dest, 20, True))
 
 
 
