@@ -1,17 +1,35 @@
-from controller.bfs import perform_bfs
+from bfs import perform_bfs
 import osmnx as ox
 import networkx as nx
 import numpy as np
 from geopy.geocoders import Nominatim
 
 def getElevation(G, src, dest):
-    return G.nodes[dest]['elevation'] - G.nodes[src]['elevation']
+    return G.nodes[src]['elevation'] - G.nodes[dest]['elevation']
+
+def getTotalElevation(G, path):
+    total_elevation = 0
+    for i in range(len(path) - 1):
+        curr_elevation = getElevation(G, path[i], path[i + 1])
+        if curr_elevation > 0:
+            total_elevation += curr_elevation
+
+    return total_elevation
+
+def getPath(par, src, dest):
+    path = []
+    n = end
+    path.append(n)
+    while n != start:
+        n = par[n]
+        path.append(n)
+    return path[::-1]
 
 def getDistance(G, src, dest):
     return G.edges[src, dest, 0]['distance']
 
 def get_node(G, point):
-    return ox.nearest_nodes(G, float(point[0]), float(point[1]))
+    return ox.get_nearest_nodes(G, float(point[0]), float(point[1]))
 
 def get_graph(filename):
     G = ox.load_graphml(filename)

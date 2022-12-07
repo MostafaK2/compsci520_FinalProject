@@ -1,5 +1,7 @@
 import osmnx as ox
 import heapq
+import warnings
+warnings.filterwarnings('ignore')
 
 class Pair(object):
     def __init__(self, node, weight, visited, path):
