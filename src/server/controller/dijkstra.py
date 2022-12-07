@@ -1,41 +1,38 @@
 import osmnx as ox
 import heapq
-import warnings
-warnings.filterwarnings('ignore')
 
 class Pair(object):
-    def __init__(self, node, weight, visited, path):
+    def __init__(self, node, weight, path):
         self.node = node
         self.weight = weight
-        self.visited = visited
         self.path = path
 
     def __lt__(self, other):
         return self.weight < other.weight
 
-# G = ox.graph_from_place('Sutherland Shire Council', network_type='drive')
-
-# print("Shortest Paths Using In-Built Libraries")
-# print(next(ox.k_shortest_paths(G, 1839271812, 668727077, 1, weight = 'length')))
 
 def dijkstra(G, src, dest):
     visited = set()
-    new = Pair(src, 0, False, str(src))
+    new = Pair(src, 0, str(src))
     pq = []
     heapq.heappush(pq, new)
+    visited = set()
     while len(pq) != 0:
         object = heapq.heappop(pq)
-        # print("path print check ",object.path)
+        print("path print check ", object.path)
         if object.node == dest:
-            # print("found destination")
-            # print("path", object.path)
+            print("found destination")
+            print("path", object.path)
             break
-        if object.visited == True:
+        if object.node in visited:
             continue
-        object.visited = True
+        visited.add(object.node)
         for src, next, length in G.edges(object.node, data=True):
-            newObject = Pair(next, length['length'] + object.weight, False, object.path + " " + str(next))
-            heapq.heappush(pq, newObject)
-    return object.path, object.weight
+            if next not in visited:
+                newObject = Pair(next, length['length'] + object.weight, object.path + " " + str(next))
+                heapq.heappush(pq, newObject)
 
-# print(dijkstra(G, 1839271812, 668727077))
+
+place_query = {'city': 'Amherst', 'state':'Massachusetts', 'country': 'USA'}
+G = ox.graph_from_place(place_query, network_type='drive')
+dijkstra(G, 66711889, 66593243)
