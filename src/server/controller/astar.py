@@ -1,10 +1,18 @@
 
 import osmnx as ox
 from heapq import *
+import warnings
+warnings.filterwarnings('ignore')
 
 G = ox.graph_from_place('Sutherland Shire Council', network_type='drive')
+print(G.nodes[1839271812])
 
-def astar(G, src, dest):
+def compute_elevation(G, src, dest):
+    if src == dest:
+        return 0
+    return G.nodes[src]['elevation'] - G.nodes[dest]['elevation']
+
+def astar(G, src, dest, min_elev = None):
     queue = [(0, src, 0, None)]
     visited = {}
     open_list = {}
@@ -30,15 +38,21 @@ def astar(G, src, dest):
                        if old_cost <= new_cost:
                             continue
                     else:
-                        y1 = G.nodes[dest]['y']
-                        x1 = G.nodes[dest]['x']
-                        y2 = G.nodes[node]['y']
-                        x2 = G.nodes[node]['x']
-                        h = ox.distance.euclidean_dist_vec(y1, x1, y2, x2)
+                        if min_elev is None:
+                            y1 = G.nodes[dest]['y']
+                            x1 = G.nodes[dest]['x']
+                            y2 = G.nodes[neighbor]['y']
+                            x2 = G.nodes[neighbor]['x']
+                            h = ox.distance.euclidean_dist_vec(y1, x1, y2, x2)
+                        elif min_elev:
+                            h = compute_elevation(G, neighbor, dest)
+                        else:
+                            h = compute_elevation(G, neighbor, dest)
+
                     open_list[neighbor] = new_cost, h
                     heappush(queue, (new_cost + h, neighbor, new_cost, node))
 
-path, path_len = astar(G, 1839271812, 668727077)
+path, path_len = astar(G, 1839271812, 668727077, True)
 print(path, path_len)
 print(ox.distance.shortest_path(G, 1839271812, 668727077, weight='length'))
 
