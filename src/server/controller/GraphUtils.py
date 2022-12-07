@@ -1,4 +1,4 @@
-from bfs import perform_bfs
+from controller.bfs import perform_bfs
 import osmnx as ox
 import networkx as nx
 import numpy as np
@@ -18,9 +18,9 @@ def getTotalElevation(G, path):
 
 def getPath(par, src, dest):
     path = []
-    n = end
+    n = dest
     path.append(n)
-    while n != start:
+    while n != src:
         n = par[n]
         path.append(n)
     return path[::-1]
