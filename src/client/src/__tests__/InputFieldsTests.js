@@ -3,15 +3,25 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
-import { render, screen, cleanup, queryByTestId } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  cleanup,
+  queryByTestId,
+} from "@testing-library/react";
 import { InputFields } from "../Components/InputFields";
 import { Slider, Input, Radio } from "antd";
-import { fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Container } from "../Store/Provider";
 
 jest.mock("antd", () => {
   const antd = jest.requireActual("antd");
+  const Select = (props) => {
+    const { testid, ...other } = props;
+    return <input data-testid={testid} {...other}></input>;
+  };
 
   const Slider = (props) => {
     return (
@@ -42,38 +52,36 @@ test("InputField renders", () => {
   expect(component).toBeInTheDocument();
 });
 
-// test("initial configurations", () => {
-//    render(
-//   <Container.Provider>
-//     <InputFields />
-//   </Container.Provider>
-//   );
+test("initial configurations", () => {
+  render(
+    <Container.Provider>
+      <InputFields />
+    </Container.Provider>
+  );
 
-//   const start = screen.getByTestId("start");
-//   const destination = screen.getByTestId("destination");
-//   const button = screen.getByTestId("button");
+  expect(screen.getByText("Start")).toBeInTheDocument();
+  expect(screen.getByText("Destination")).toBeInTheDocument();
+  expect(screen.getByText("Search")).toBeInTheDocument();
+  expect(screen.getByText("0 % Away from Shortest Path")).toBeInTheDocument();
+});
 
-//   // start and destination fields should not have any value and have placeholders
-//   expect(start).not.toHaveValue();
-//   expect(destination).not.toHaveValue();
-//   expect(start).toHaveAttribute("placeholder", "Start");
-//   expect(destination).toHaveAttribute("placeholder", "Destination");
+test("test Start and Select works properly", async () => {
+  render(
+    <Container.Provider>
+      <InputFields />
+    </Container.Provider>
+  );
+  const selectStart = screen.getAllByRole("combobox");
+  await fireEvent.click(selectStart[0]);
+  await userEvent.type(selectStart[0], "Amherst");
 
-//   expect(button).toHaveTextContent("Search");
-//   expect(screen.getByText("1 % Away from Shortest Path")).toBeInTheDocument();
-// });
+  expect(selectStart[0]).toHaveValue("Amherst");
 
-// test("test inputs fields", () => {
-//   render(<InputFields />);
-//   const start = screen.getByTestId("start");
-//   const destination = screen.getByTestId("destination");
-
-//   userEvent.type(start, "someplace");
-//   userEvent.type(destination, "otherplace");
-
-//   expect(start.value).toBe("someplace");
-//   expect(destination.value).toBe("otherplace");
-// });
+  // await waitFor(() => screen.getByText("Hampshire County"));
+  // fireEvent.click(
+  //   screen.getByText("Amherst, Hampshire County, Massachusetts, United States")
+  // );
+});
 
 test("test sliders changes properly", async () => {
   render(

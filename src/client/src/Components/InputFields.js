@@ -67,6 +67,7 @@ export const InputFields = () => {
     <div data-testid="input-fields">
       <div className="feature_block">
         <Select
+          data-testid="start"
           showSearch
           value={startValue}
           placeholder="Start"
@@ -83,6 +84,7 @@ export const InputFields = () => {
           }))}
         />
          <Select
+          data-testid = "destination"
           showSearch
           value={endValue}
           placeholder="Destination"
