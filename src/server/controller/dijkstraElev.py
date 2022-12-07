@@ -4,22 +4,24 @@ import controller.GraphUtils as gu
 import warnings
 warnings.filterwarnings('ignore')
 
-def get_from_djikstra(G, start, end, percent, route, max_ele=True):
-    min_distance = gu.getPathDistance(G, route)
-    print("min_dis ", min_distance)
-    percent += 100
-    max_path_length = min_distance * (percent/100)
+
+def dijkstra_elev(G, start, end, percent, min_distance, max_ele=True):
+    # min_distance = gu.getPathDistance(G, route)
+    # print("min_dis ", min_distance)
+    # print(percent)
+    percent += 100.0
+    # max_path_length = min_distance * (percent/100)
     possible_paths = {}
-    floored_percent = (percent / 10) * 10
-    iters = []
+    floored_percent = (percent / 10.0) * 10.0
+    epochs = []
     i = 100
     while (i <= floored_percent):
-        iters.append(i)
+        epochs.append(i)
         i += 10
         # print(i)
 
     for epoch in epochs:
-        pat_len = min_distance * epoch/100
+        pat_len = float(min_distance) * epoch/100.0
         queue = []
         heapq.heappush(queue, (0, start))
         revPath = {}
@@ -49,7 +51,7 @@ def get_from_djikstra(G, start, end, percent, route, max_ele=True):
                     heapq.heappush(queue, (priority, nxt))
                     revPath[nxt] = cur
         path = gu.getPath(revPath, start, end)
-        print(gu.getTotalElevation(G, path))
+        # print(gu.getTotalElevation(G, path))
         possible_paths[gu.getTotalElevation(G, path)] = path
 
     # print(possible_paths.keys())
@@ -68,7 +70,11 @@ def get_from_djikstra(G, start, end, percent, route, max_ele=True):
     else:
         path = possible_paths[min_path_len]
 
-    return path, gu.getPathDistance(G, path), gu.getTotalElevation(G, path)
+    res = {}
+    res['path'] = path
+    res['elevation'] = str(gu.getTotalElevation(G, path))
+    res['distance'] = str(gu.getPathDistance(G, path))
+    return res
 
 
 
