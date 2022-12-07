@@ -28,6 +28,8 @@ def get_path():
         else:
             percent = request.args[arg]
     city, state, country = get_details(src, dest)
+    if(city == ""): return "error"
+
     file_name = "./data/"+(city+state+country).replace(' ', '')+".graphml"
     if(check_graph_present(file_name) == False):
         save_graph(city + ", " + state + ", " + country, file_name)

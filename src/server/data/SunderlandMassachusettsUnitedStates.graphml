@@ -673,9 +673,9 @@
     <edge source="71160477" target="71178157" id="0">
       <data key="d8">[9379761, 9379805]</data>
       <data key="d9">1</data>
-      <data key="d10">['Claybrook Road', 'Park Road']</data>
+      <data key="d10">['Park Road', 'Claybrook Road']</data>
       <data key="d11">residential</data>
-      <data key="d12">['12.2', '9.8']</data>
+      <data key="d12">['9.8', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">[False, True]</data>
       <data key="d15">803.9159999999999</data>
@@ -913,7 +913,7 @@
     </edge>
     <edge source="71161703" target="71188296" id="0">
       <data key="d8">[9379735, 9379727]</data>
-      <data key="d9">['1', '2']</data>
+      <data key="d9">['2', '1']</data>
       <data key="d10">Clark Mountain Road</data>
       <data key="d11">residential</data>
       <data key="d12">12.8</data>
@@ -1407,7 +1407,7 @@
     </edge>
     <edge source="71176144" target="71184907" id="0">
       <data key="d8">[9379464, 9379829]</data>
-      <data key="d9">['1', '2']</data>
+      <data key="d9">['2', '1']</data>
       <data key="d10">South Silver Lane</data>
       <data key="d11">residential</data>
       <data key="d12">['14.6', '11.6']</data>
@@ -1474,9 +1474,9 @@
     <edge source="71178157" target="71160477" id="0">
       <data key="d8">[9379761, 9379805]</data>
       <data key="d9">1</data>
-      <data key="d10">['Claybrook Road', 'Park Road']</data>
+      <data key="d10">['Park Road', 'Claybrook Road']</data>
       <data key="d11">residential</data>
-      <data key="d12">['12.2', '9.8']</data>
+      <data key="d12">['9.8', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">[False, True]</data>
       <data key="d15">803.9159999999999</data>
@@ -1758,7 +1758,7 @@
     <edge source="71183490" target="71187762" id="0">
       <data key="d8">[9379636, 9379798]</data>
       <data key="d9">1</data>
-      <data key="d10">['Reservation Road Branch', 'Hemlock Drive']</data>
+      <data key="d10">['Hemlock Drive', 'Reservation Road Branch']</data>
       <data key="d11">residential</data>
       <data key="d12">6.1</data>
       <data key="d13">False</data>
@@ -1800,10 +1800,10 @@
     </edge>
     <edge source="71184907" target="71176144" id="0">
       <data key="d8">[9379464, 9379829]</data>
-      <data key="d9">['1', '2']</data>
+      <data key="d9">['2', '1']</data>
       <data key="d10">South Silver Lane</data>
       <data key="d11">residential</data>
-      <data key="d12">['11.6', '14.6']</data>
+      <data key="d12">['14.6', '11.6']</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
       <data key="d15">572.6620000000001</data>
@@ -1866,7 +1866,7 @@
     </edge>
     <edge source="71186849" target="5261816929" id="0">
       <data key="d8">[9379785, 9379802, 9379692]</data>
-      <data key="d9">['1', '2']</data>
+      <data key="d9">['2', '1']</data>
       <data key="d10">['Reservoir Road', 'Cross Mountain Road']</data>
       <data key="d11">residential</data>
       <data key="d12">['9.1', '11.6']</data>
@@ -1877,7 +1877,7 @@
     </edge>
     <edge source="71187762" target="71183490" id="0">
       <data key="d8">[9379636, 9379798]</data>
-      <data key="d10">['Reservation Road Branch', 'Hemlock Drive']</data>
+      <data key="d10">['Hemlock Drive', 'Reservation Road Branch']</data>
       <data key="d11">residential</data>
       <data key="d13">False</data>
       <data key="d14">[False, True]</data>
@@ -1921,7 +1921,7 @@
     </edge>
     <edge source="71188131" target="71193285" id="0">
       <data key="d8">[9379738, 9379764]</data>
-      <data key="d9">['1', '2']</data>
+      <data key="d9">['2', '1']</data>
       <data key="d10">North Plain Road</data>
       <data key="d11">residential</data>
       <data key="d12">9.1</data>
@@ -1932,7 +1932,7 @@
     </edge>
     <edge source="71188296" target="71161703" id="0">
       <data key="d8">[9379727, 9379735]</data>
-      <data key="d9">['1', '2']</data>
+      <data key="d9">['2', '1']</data>
       <data key="d10">Clark Mountain Road</data>
       <data key="d11">residential</data>
       <data key="d12">12.8</data>
@@ -2094,7 +2094,7 @@
     </edge>
     <edge source="71193285" target="71188131" id="0">
       <data key="d8">[9379738, 9379764]</data>
-      <data key="d9">['1', '2']</data>
+      <data key="d9">['2', '1']</data>
       <data key="d10">North Plain Road</data>
       <data key="d11">residential</data>
       <data key="d12">9.1</data>
@@ -2717,8 +2717,8 @@
     </edge>
     <edge source="5261816929" target="71186849" id="0">
       <data key="d8">[9379785, 9379802, 9379692]</data>
-      <data key="d9">['1', '2']</data>
-      <data key="d10">['Reservoir Road', 'Cross Mountain Road']</data>
+      <data key="d9">['2', '1']</data>
+      <data key="d10">['Cross Mountain Road', 'Reservoir Road']</data>
       <data key="d11">residential</data>
       <data key="d12">['9.1', '11.6']</data>
       <data key="d13">False</data>
@@ -2789,7 +2789,7 @@
       <data key="d15">151.39000000000001</data>
       <data key="d16">LINESTRING (-72.5637977 42.4716208, -72.5638249 42.4717066, -72.5638398 42.4720835, -72.5638791 42.4723514, -72.5638991 42.4724571, -72.5640409 42.4729666)</data>
     </edge>
-    <data key="d0">2022-12-07 11:05:08</data>
+    <data key="d0">2022-12-07 14:52:45</data>
     <data key="d1">OSMnx 1.2.2</data>
     <data key="d2">epsg:4326</data>
     <data key="d3">True</data>

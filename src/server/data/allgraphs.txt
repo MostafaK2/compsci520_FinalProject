@@ -1,5 +1,0 @@
-./data/AmherstMassachusettsUnitedStates.graphml
-./data/SunderlandMassachusettsUnitedStates.graphml
-./data/SunderlandMassachusettsUnitedStates.graphml
-./data/SunderlandMassachusettsUnitedStates.graphml
-./data/AmherstMassachusettsUnitedStates.graphml

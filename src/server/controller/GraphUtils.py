@@ -41,8 +41,8 @@ def get_shortest_path(src_point, dest_point, filename):
     # print(route)
     routes = perform_bfs(graph, src_node, dest_node)
     # print(routes)
-    for route in routes:
-        print(details[route])
+    # for route in routes:
+    #     print(details[route])
     path = get_lat_long(graph, routes)
     return path
 
@@ -61,10 +61,10 @@ def get_details(src_point, dest_point):
     else:
         src_city = location_src.raw['address']['city']
     
-    if("town" in location_src.raw['address'].keys()):
-        dest_city = location_src.raw['address']['town']
+    if("town" in location_dest.raw['address'].keys()):
+        dest_city = location_dest.raw['address']['town']
     else:
-        dest_city = location_src.raw['address']['city']
+        dest_city = location_dest.raw['address']['city']
 
     if(src_country != dest_country or src_state != dest_state or src_city != dest_city):
         return "", "", ""
