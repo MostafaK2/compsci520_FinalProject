@@ -34,8 +34,11 @@ def get_path():
     if(check_graph_present(file_name) == False):
         save_graph(city + ", " + state + ", " + country, file_name)
 
-    path = get_shortest_path((float(src[0]), float(src[1])), (float(dest[0]), float(dest[1])), file_name)
-    return path, 0.0, 0.0
+    res = get_shortest_path((float(src[0]), float(src[1])), (float(dest[0]), float(dest[1])), file_name)
+    if flag == 1 or flag == 2:
+        res = get_shortest_path((float(src[0]), float(src[1])), (float(dest[0]), float(dest[1])), percent, flag, file_name)
+        
+    return res
 
 if __name__ == '__main__':
     app.run()
