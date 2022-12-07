@@ -4593,7 +4593,7 @@
       <data key="d17">MA 116</data>
       <data key="d10">West Street</data>
       <data key="d11">secondary</data>
-      <data key="d18">['45 mph', '50 mph']</data>
+      <data key="d18">['50 mph', '45 mph']</data>
       <data key="d12">21.3</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
@@ -5138,7 +5138,7 @@
       <data key="d9">2</data>
       <data key="d10">['Pine Grove Road', 'Crossbrook']</data>
       <data key="d11">residential</data>
-      <data key="d12">['15.2', '18.3']</data>
+      <data key="d12">['18.3', '15.2']</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
       <data key="d15">268.019</data>
@@ -5448,7 +5448,7 @@
       <data key="d9">2</data>
       <data key="d10">['North Whitney Street', 'Red Gate Lane']</data>
       <data key="d11">tertiary</data>
-      <data key="d12">['12.2', '15.2']</data>
+      <data key="d12">['15.2', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
       <data key="d15">603.3950000000001</data>
@@ -6173,7 +6173,7 @@
     </edge>
     <edge source="66613374" target="66714028" id="0">
       <data key="d8">[9058753, 678037635, 678037636, 673011139]</data>
-      <data key="d9">['2', '3']</data>
+      <data key="d9">['3', '2']</data>
       <data key="d10">North Pleasant Street</data>
       <data key="d11">primary</data>
       <data key="d12">29.0</data>
@@ -6358,7 +6358,7 @@
       <data key="d9">['1', '2']</data>
       <data key="d10">Pulpit Hill Road</data>
       <data key="d11">residential</data>
-      <data key="d18">['25 mph', '20 mph']</data>
+      <data key="d18">['20 mph', '25 mph']</data>
       <data key="d12">10.1</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
@@ -8266,7 +8266,7 @@
       <data key="d9">2</data>
       <data key="d10">['Harris Street', 'Fisher Street']</data>
       <data key="d11">residential</data>
-      <data key="d12">['10.7', '15.2']</data>
+      <data key="d12">['15.2', '10.7']</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
       <data key="d15">401.09099999999995</data>
@@ -8433,7 +8433,7 @@
       <data key="d9">['1', '2']</data>
       <data key="d10">Morgan Circle</data>
       <data key="d11">residential</data>
-      <data key="d12">['12.2', '15.2']</data>
+      <data key="d12">['15.2', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
       <data key="d15">605.188</data>
@@ -9901,7 +9901,7 @@
       <data key="d10">South East Street</data>
       <data key="d11">secondary</data>
       <data key="d18">35 mph</data>
-      <data key="d12">['12.2', '18.3']</data>
+      <data key="d12">['18.3', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
       <data key="d15">627.6690000000001</data>
@@ -10379,7 +10379,7 @@
     </edge>
     <edge source="66653057" target="66715310" id="0">
       <data key="d8">[9057708, 720570211, 720570212]</data>
-      <data key="d9">['2', '3']</data>
+      <data key="d9">['3', '2']</data>
       <data key="d17">MA 9</data>
       <data key="d10">College Street</data>
       <data key="d11">primary</data>
@@ -10498,7 +10498,7 @@
     <edge source="66654525" target="4277546616" id="0">
       <data key="d8">[672792961, 664493390]</data>
       <data key="d13">True</data>
-      <data key="d9">['2', '3']</data>
+      <data key="d9">['3', '2']</data>
       <data key="d10">Massachusetts Avenue</data>
       <data key="d11">primary</data>
       <data key="d18">30 mph</data>
@@ -11459,7 +11459,7 @@
       <data key="d9">2</data>
       <data key="d10">['Hunters Hill Circle', 'Columbia Drive']</data>
       <data key="d11">residential</data>
-      <data key="d12">['12.2', '15.2']</data>
+      <data key="d12">['15.2', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
       <data key="d15">532.718</data>
@@ -11668,7 +11668,7 @@
       <data key="d9">2</data>
       <data key="d10">['Hunters Hill Circle', 'Columbia Drive']</data>
       <data key="d11">residential</data>
-      <data key="d12">['12.2', '15.2']</data>
+      <data key="d12">['15.2', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
       <data key="d15">532.7179999999998</data>
@@ -12524,7 +12524,7 @@
       <data key="d17">MA 116</data>
       <data key="d10">West Street</data>
       <data key="d11">secondary</data>
-      <data key="d18">['45 mph', '50 mph']</data>
+      <data key="d18">['50 mph', '45 mph']</data>
       <data key="d12">21.3</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
@@ -12613,7 +12613,7 @@
       <data key="d9">2</data>
       <data key="d10">Mill Lane</data>
       <data key="d11">residential</data>
-      <data key="d18">['40 mph', '15 mph', '30 mph']</data>
+      <data key="d18">['30 mph', '40 mph', '15 mph']</data>
       <data key="d12">15.2</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
@@ -13399,7 +13399,7 @@
       <data key="d9">2</data>
       <data key="d10">North Pleasant Street</data>
       <data key="d11">secondary</data>
-      <data key="d18">['25 mph', '35 mph']</data>
+      <data key="d18">['35 mph', '25 mph']</data>
       <data key="d14">True</data>
       <data key="d15">400.834</data>
       <data key="d16">LINESTRING (-72.52805 42.398794, -72.528044 42.398916, -72.52803 42.399081, -72.5280242 42.3991403, -72.528014 42.399246, -72.528006 42.3993233, -72.527997 42.399411, -72.527981 42.399568, -72.527965 42.399725, -72.527949 42.399883, -72.527945 42.399923, -72.527937 42.400008, -72.5279317 42.4000631, -72.527925 42.400134, -72.527913 42.400259, -72.527903 42.400345, -72.527893 42.400431, -72.527887 42.400516, -72.527886 42.400559, -72.527887 42.400603, -72.527889 42.400646, -72.527891 42.400693, -72.527891 42.4007346, -72.5278946 42.4007771, -72.5279051 42.4008306, -72.527918 42.400916, -72.527932 42.400979, -72.527955 42.401059, -72.527982 42.401138, -72.52801 42.401216, -72.528053 42.401336, -72.528097 42.401456, -72.528144 42.401575, -72.528188 42.401684, -72.528233 42.401794, -72.528281 42.401904, -72.528325 42.401997, -72.5283603 42.4020676, -72.528371 42.402089, -72.528418 42.402181, -72.528476 42.402292, -72.528496 42.402328)</data>
@@ -13420,7 +13420,7 @@
       <data key="d9">['1', '2']</data>
       <data key="d10">Morgan Circle</data>
       <data key="d11">residential</data>
-      <data key="d12">['12.2', '15.2']</data>
+      <data key="d12">['15.2', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
       <data key="d15">605.188</data>
@@ -14601,7 +14601,7 @@
       <data key="d9">2</data>
       <data key="d10">['North Whitney Street', 'Red Gate Lane']</data>
       <data key="d11">tertiary</data>
-      <data key="d12">['12.2', '15.2']</data>
+      <data key="d12">['15.2', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
       <data key="d15">603.3950000000001</data>
@@ -14936,7 +14936,7 @@
     <edge source="66697677" target="506027554" id="1">
       <data key="d8">[9058660, 308797206]</data>
       <data key="d9">2</data>
-      <data key="d10">['Linden Ridge Road', 'Concord Way']</data>
+      <data key="d10">['Concord Way', 'Linden Ridge Road']</data>
       <data key="d11">residential</data>
       <data key="d18">15 mph</data>
       <data key="d12">15.2</data>
@@ -15484,7 +15484,7 @@
       <data key="d9">['1', '2']</data>
       <data key="d10">Pulpit Hill Road</data>
       <data key="d11">residential</data>
-      <data key="d18">['25 mph', '20 mph']</data>
+      <data key="d18">['20 mph', '25 mph']</data>
       <data key="d12">10.1</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
@@ -15627,7 +15627,7 @@
       <data key="d9">2</data>
       <data key="d10">['Grove Street', 'Canton Avenue']</data>
       <data key="d11">residential</data>
-      <data key="d12">['12.2', '9.1']</data>
+      <data key="d12">['9.1', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
       <data key="d15">253.14900000000003</data>
@@ -17562,7 +17562,7 @@
     </edge>
     <edge source="66714028" target="66613374" id="0">
       <data key="d8">[678037636, 673011139, 678037635, 9058753]</data>
-      <data key="d9">['2', '3']</data>
+      <data key="d9">['3', '2']</data>
       <data key="d10">North Pleasant Street</data>
       <data key="d11">primary</data>
       <data key="d12">29.0</data>
@@ -17769,7 +17769,7 @@
     </edge>
     <edge source="66715310" target="66653057" id="0">
       <data key="d8">[720570212, 720570211, 9057708]</data>
-      <data key="d9">['2', '3']</data>
+      <data key="d9">['3', '2']</data>
       <data key="d17">MA 9</data>
       <data key="d10">College Street</data>
       <data key="d11">primary</data>
@@ -17781,7 +17781,7 @@
     </edge>
     <edge source="66715310" target="66772299" id="0">
       <data key="d8">[664535369, 720570230]</data>
-      <data key="d9">['2', '3']</data>
+      <data key="d9">['3', '2']</data>
       <data key="d10">South East Street</data>
       <data key="d11">secondary</data>
       <data key="d18">35 mph</data>
@@ -17860,7 +17860,7 @@
     <edge source="66715367" target="5637885552" id="0">
       <data key="d8">[359642641, 9057898]</data>
       <data key="d9">2</data>
-      <data key="d10">['Cottage Street', 'Morrow Lane']</data>
+      <data key="d10">['Morrow Lane', 'Cottage Street']</data>
       <data key="d11">residential</data>
       <data key="d12">12.2</data>
       <data key="d13">False</data>
@@ -18037,7 +18037,7 @@
     <edge source="66715883" target="66715883" id="0">
       <data key="d8">[544319040, 9057630, 9057438]</data>
       <data key="d9">2</data>
-      <data key="d10">['Village Park Drive', '497 East Pleasant Street']</data>
+      <data key="d10">['497 East Pleasant Street', 'Village Park Drive']</data>
       <data key="d11">residential</data>
       <data key="d12">12.2</data>
       <data key="d13">False</data>
@@ -18048,7 +18048,7 @@
     <edge source="66715883" target="66715883" id="1">
       <data key="d8">[544319040, 9057438, 9057630]</data>
       <data key="d9">2</data>
-      <data key="d10">['Village Park Drive', '497 East Pleasant Street']</data>
+      <data key="d10">['497 East Pleasant Street', 'Village Park Drive']</data>
       <data key="d11">residential</data>
       <data key="d12">12.2</data>
       <data key="d13">False</data>
@@ -19760,7 +19760,7 @@
       <data key="d9">2</data>
       <data key="d10">['Grove Street', 'Canton Avenue']</data>
       <data key="d11">residential</data>
-      <data key="d12">['12.2', '9.1']</data>
+      <data key="d12">['9.1', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">True</data>
       <data key="d15">253.14900000000003</data>
@@ -19803,7 +19803,7 @@
       <data key="d8">[9057938, 9057742]</data>
       <data key="d13">True</data>
       <data key="d9">1</data>
-      <data key="d10">['North Prospect Street', 'Hallock Street']</data>
+      <data key="d10">['Hallock Street', 'North Prospect Street']</data>
       <data key="d11">residential</data>
       <data key="d14">False</data>
       <data key="d15">189.26999999999998</data>
@@ -20204,7 +20204,7 @@
       <data key="d10">South East Street</data>
       <data key="d11">secondary</data>
       <data key="d18">35 mph</data>
-      <data key="d12">['12.2', '18.3']</data>
+      <data key="d12">['18.3', '12.2']</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
       <data key="d15">627.669</data>
@@ -22637,9 +22637,9 @@
     <edge source="66757224" target="66634119" id="0">
       <data key="d8">[9058636, 9058855]</data>
       <data key="d9">2</data>
-      <data key="d10">['Harris Street', 'Fisher Street']</data>
+      <data key="d10">['Fisher Street', 'Harris Street']</data>
       <data key="d11">residential</data>
-      <data key="d12">['10.7', '15.2']</data>
+      <data key="d12">['15.2', '10.7']</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
       <data key="d15">401.09099999999995</data>
@@ -22957,7 +22957,7 @@
       <data key="d9">2</data>
       <data key="d10">Mill Lane</data>
       <data key="d11">residential</data>
-      <data key="d18">['40 mph', '15 mph', '30 mph']</data>
+      <data key="d18">['15 mph', '40 mph', '30 mph']</data>
       <data key="d12">15.2</data>
       <data key="d13">False</data>
       <data key="d14">False</data>
@@ -24343,7 +24343,7 @@
     </edge>
     <edge source="66772299" target="66715310" id="0">
       <data key="d8">[664535369, 720570230]</data>
-      <data key="d9">['2', '3']</data>
+      <data key="d9">['3', '2']</data>
       <data key="d10">South East Street</data>
       <data key="d11">secondary</data>
       <data key="d18">35 mph</data>
@@ -25165,7 +25165,7 @@
     </edge>
     <edge source="506027554" target="66697677" id="1">
       <data key="d8">[9058660, 308797206]</data>
-      <data key="d10">['Linden Ridge Road', 'Concord Way']</data>
+      <data key="d10">['Concord Way', 'Linden Ridge Road']</data>
       <data key="d11">residential</data>
       <data key="d13">False</data>
       <data key="d14">[False, True]</data>
@@ -26699,7 +26699,7 @@
     </edge>
     <edge source="5637885552" target="66715367" id="0">
       <data key="d8">[359642641, 9057898]</data>
-      <data key="d10">['Cottage Street', 'Morrow Lane']</data>
+      <data key="d10">['Morrow Lane', 'Cottage Street']</data>
       <data key="d11">residential</data>
       <data key="d13">False</data>
       <data key="d14">[False, True]</data>
@@ -27506,7 +27506,7 @@
       <data key="d15">92.30799999999999</data>
       <data key="d16">LINESTRING (-72.5228909 42.3794169, -72.5222169 42.3794936, -72.5221274 42.3792223, -72.5221117 42.3791766)</data>
     </edge>
-    <data key="d0">2022-12-07 13:17:20</data>
+    <data key="d0">2022-12-07 14:38:30</data>
     <data key="d1">OSMnx 1.2.2</data>
     <data key="d2">epsg:4326</data>
     <data key="d3">True</data>
