@@ -1,4 +1,4 @@
-import { Button, Radio, Slider, Select, Modal } from "antd";
+import { Button, Radio, Slider, Select, Modal, Card } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Container } from "../Store/Provider";
@@ -15,6 +15,9 @@ export const InputFields = () => {
   const [isDisabled, setDisabled] = useState(false);
   const [isReset, setReset] = useState(false);
   const [isSameCity, setSameCity] = useState(false);
+  const [distance, setDistance] = useState("");
+  const [elevation, setElevation] = useState("");
+  const [displayStats, setDisplayStats] = useState(false);
 
   const container = Container.useContainer();
 
@@ -61,22 +64,25 @@ export const InputFields = () => {
   const sendData = async (e) => {
     setDisabled(true);
     setReset(true);
-    const path = await getMetaData(
+    const results = await getMetaData(
       container.startCoordinate,
       container.endCoordinate,
       inputValue,
       value
     );
-    if(path === "error") {
+    if(results === "error") {
       setSameCity(true);
       setDisabled(false);
       setReset(false);
       reset();
       return;
     }
-    container.callPath(path);
+    container.callPath(results["path"]);
     setDisabled(false);
     setReset(false);
+    setDisplayStats(true);
+    setDistance(results["distance"]);
+    setElevation(results["elevation"]);
   };
 
   const reset = () => {
@@ -89,6 +95,9 @@ export const InputFields = () => {
     container.callPath([]);
     container.callStart("");
     container.callEnd("");
+    setDisplayStats(false);
+    setElevation("");
+    setDistance("");
   }
 
   return (
@@ -171,6 +180,15 @@ export const InputFields = () => {
         Search
       </Button>
       <Button onClick={reset} disabled={isReset}>Reset</Button>
+      <Card
+      title="Route Statistics"
+      size="small"
+      bordered={false}
+      style={displayStats ? { "display": "block"} : { "display": "none"}}
+    >
+      <p>Distance: {distance}</p>
+      <p>Elevation: {elevation}</p>
+    </Card>
     </div>
   );
 };

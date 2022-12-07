@@ -35,7 +35,7 @@ def get_path():
         save_graph(city + ", " + state + ", " + country, file_name)
 
     path = get_shortest_path((float(src[0]), float(src[1])), (float(dest[0]), float(dest[1])), file_name)
-    return path, 0.0, 0.0
+    return {"path": path, "elevation": "2.898", "distance": "6.798"}
 
 if __name__ == '__main__':
     app.run()

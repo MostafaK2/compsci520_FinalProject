@@ -1,4 +1,7 @@
 from controller.bfs import perform_bfs
+from controller.dijkstra import dijkstra
+from controller.astar import astar
+from controller.dijkstraElev import get_from_djikstra
 import osmnx as ox
 import networkx as nx
 import numpy as np

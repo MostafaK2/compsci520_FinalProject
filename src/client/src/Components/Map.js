@@ -40,7 +40,7 @@ export const Map = () => {
     polyline
   ]);
 
-  const blackOptions = { color: 'black', weight: '6' }
+  const blackOptions = { color: 'blue', weight: '6' }
 
   return (
     <MapContainer

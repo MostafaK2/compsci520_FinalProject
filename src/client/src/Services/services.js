@@ -27,7 +27,7 @@ export const getMetaData = (src, dest, flag, percent) =>
     percent: percent
   }})
     .then((res) => {
-      // console.log(res);
+      // console.log(res)
       return res.data
     })
     .catch((error) => {
