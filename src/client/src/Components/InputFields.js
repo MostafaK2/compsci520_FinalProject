@@ -67,8 +67,8 @@ export const InputFields = () => {
     const results = await getMetaData(
       container.startCoordinate,
       container.endCoordinate,
-      inputValue,
-      value
+      value,
+      inputValue
     );
     if(results === "error") {
       setSameCity(true);

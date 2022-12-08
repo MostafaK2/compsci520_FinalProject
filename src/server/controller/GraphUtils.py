@@ -69,23 +69,14 @@ def get_shortest_path(src_point, dest_point, percent, flag, filename):
     return res
 
 def get_shortest_path_helper(src_point, dest_point, filename):
-    # print(src, dest)
     graph = get_graph(filename)
     src_node = get_node(graph, src_point)
     dest_node = get_node(graph, dest_point)
-    details = nx.to_dict_of_dicts(graph)
-    # print(details)
-    route = ox.shortest_path(graph, src_node, dest_node, weight="length")
-    
-    # print(route)
 
     routes = perform_bfs(graph, src_node, dest_node)
-    # print(routes)
-    # for route in routes:
-    #     print(details[route])
     res = {}
-    res['distance'] = str(getPathDistance(graph, routes))
-    res['elevation'] = None
+    res['distance'] = str(round(getPathDistance(graph, routes), 4))
+    res['elevation'] = "Not Applicable"
     path = get_lat_long(graph, routes)
     res['path'] = path
 
@@ -93,10 +84,8 @@ def get_shortest_path_helper(src_point, dest_point, filename):
 
 def get_details(src_point, dest_point):
     geolocator = Nominatim(user_agent="EleNa-server")
-    # 42.3601, -71.0589
     location_src = geolocator.reverse(str(src_point[1]) + ", " + str(src_point[0]))
     location_dest = geolocator.reverse(str(dest_point[1]) + ", " + str(dest_point[0]))
-    # print(location_src.raw, location_dest.raw)
     src_country = location_src.raw['address']['country']
     dest_country = location_dest.raw['address']['country']
     src_state = location_src.raw['address']['state']

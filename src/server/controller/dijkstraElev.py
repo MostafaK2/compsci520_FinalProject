@@ -72,8 +72,8 @@ def dijkstra_elev(G, start, end, percent, min_distance, max_ele=True):
 
     res = {}
     res['path'] = path
-    res['elevation'] = str(gu.getTotalElevation(G, path))
-    res['distance'] = str(gu.getPathDistance(G, path))
+    res['elevation'] = str(round(gu.getTotalElevation(G, path), 4))
+    res['distance'] = str(round(gu.getPathDistance(G, path), 4))
     return res
 
 
