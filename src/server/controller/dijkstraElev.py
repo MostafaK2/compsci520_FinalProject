@@ -1,6 +1,6 @@
 import osmnx as ox
 import heapq
-import controller.GraphUtils as gu
+import GraphUtils as gu
 import warnings
 warnings.filterwarnings('ignore')
 
