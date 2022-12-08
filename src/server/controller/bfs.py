@@ -1,8 +1,6 @@
 import osmnx as ox
 from queue import Queue
 
-G = ox.graph_from_place('Sutherland Shire Council', network_type='drive')
-
 class Node(object):
     def __init__(self, node, weight, path):
         self.node = node
@@ -24,8 +22,8 @@ def perform_bfs(G, src, dest):
         current_node = queue.get()
         if current_node.node == dest:
             path_found = True
-            print("path found")
-            print("length", current_node.weight)
+            # print("path found")
+            # print("length", current_node.weight)
             break
         for curr, next, length in G.edges(current_node.node, data=True):
             if next not in visited:
@@ -42,5 +40,4 @@ def perform_bfs(G, src, dest):
             dest = parent[dest]
         path.reverse()
     return path
-perform_bfs(G, 1839271812, 668727077)
 

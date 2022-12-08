@@ -31,8 +31,3 @@ def dijkstra(G, src, dest):
             if next not in visited:
                 newObject = Pair(next, length['length'] + object.weight, object.path + " " + str(next))
                 heapq.heappush(pq, newObject)
-
-
-place_query = {'city': 'Amherst', 'state':'Massachusetts', 'country': 'USA'}
-G = ox.graph_from_place(place_query, network_type='drive')
-dijkstra(G, 66711889, 66593243)

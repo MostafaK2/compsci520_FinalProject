@@ -1,7 +1,6 @@
 import osmnx as ox
 import sys
 
-G = ox.graph_from_place('Sutherland Shire Council', network_type='drive')
 def dfs(G, src, dest, visited):
     if src == dest:
         return 0
@@ -16,7 +15,3 @@ def dfs(G, src, dest, visited):
 
     if src in visited: visited.remove(src)
     return min_dis
-
-
-path_len = dfs(G, 1839271812, 668727077,[])
-print(path_len)
