@@ -186,8 +186,8 @@ export const InputFields = () => {
       bordered={false}
       style={displayStats ? { "display": "block"} : { "display": "none"}}
     >
-      <p>Distance: {distance}</p>
-      <p>Elevation: {elevation}</p>
+      <p>Distance: {distance} metres</p>
+      <p>Elevation: {elevation} metres</p>
     </Card>
     </div>
   );

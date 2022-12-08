@@ -68,9 +68,9 @@ export const Map = () => {
           position={markers.endMarker}
         />
       )}
-      {
+      {/* {
         polyline.map((ele, key) => <Marker position={ele} key={key}/>)
-      }
+      } */}
       <Polyline pathOptions={blackOptions} positions={polyline} />
     </MapContainer>
   );
