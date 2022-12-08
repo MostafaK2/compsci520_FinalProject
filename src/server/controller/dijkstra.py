@@ -17,12 +17,12 @@ def dijkstra(G, src, dest):
     pq = []
     heapq.heappush(pq, new)
     visited = set()
+    path = []
     while len(pq) != 0:
         object = heapq.heappop(pq)
-        print("path print check ", object.path)
         if object.node == dest:
-            print("found destination")
-            print("path", object.path)
+            all_ids = object.path.split()
+            path = [int(id) for id in all_ids]
             break
         if object.node in visited:
             continue
@@ -31,3 +31,5 @@ def dijkstra(G, src, dest):
             if next not in visited:
                 newObject = Pair(next, length['length'] + object.weight, object.path + " " + str(next))
                 heapq.heappush(pq, newObject)
+
+    return path

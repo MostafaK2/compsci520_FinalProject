@@ -1,9 +1,12 @@
 from controller.bfs import perform_bfs
 from controller.dijkstraElev import dijkstra_elev
+from controller.dijkstra import dijkstra
+from controller.astar import astar
 import osmnx as ox
 import networkx as nx
 import numpy as np
 from geopy.geocoders import Nominatim
+import time
 
 def getElevation(G, src, dest):
     return G.nodes[src]['elevation'] - G.nodes[dest]['elevation']
@@ -73,7 +76,23 @@ def get_shortest_path_helper(src_point, dest_point, filename):
     src_node = get_node(graph, src_point)
     dest_node = get_node(graph, dest_point)
 
+    start_bfs_time = time.time()
     routes = perform_bfs(graph, src_node, dest_node)
+    print("Bfs Time: ", time.time()-start_bfs_time)
+    print("Bfs Route: ", routes)
+    start_dijkstra_time = time.time()
+    routes = dijkstra(graph, src_node, dest_node)
+    print("Dijkstra Time: ", time.time()-start_dijkstra_time)
+    print("Dijkstra Route: ", routes)
+    start_astar_time = time.time()
+    routes, dist = astar(graph, src_node, dest_node)
+    print("Astar time: ", time.time()-start_astar_time)
+    print("Astar Route: ", routes)
+    start_osmnx_time = time.time()
+    routes = ox.shortest_path(graph, src_node, dest_node, weight="length")
+    print("Osmnx Time: ", time.time()-start_osmnx_time)
+    print("Osmnx Route: ", routes)
+
     res = {}
     res['distance'] = str(round(getPathDistance(graph, routes), 4))
     res['elevation'] = "Not Applicable"

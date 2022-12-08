@@ -7,8 +7,6 @@ class Node(object):
         self.weight = weight
         self.path = path
 
-# print("Shortest Paths Using In-Built Libraries")
-# print(next(ox.k_shortest_paths(G, 1839271812, 668727077, 1, weight='length')))
 def perform_bfs(G, src, dest):
     parent = dict()
     visited = set()
@@ -22,8 +20,6 @@ def perform_bfs(G, src, dest):
         current_node = queue.get()
         if current_node.node == dest:
             path_found = True
-            # print("path found")
-            # print("length", current_node.weight)
             break
         for curr, next, length in G.edges(current_node.node, data=True):
             if next not in visited:

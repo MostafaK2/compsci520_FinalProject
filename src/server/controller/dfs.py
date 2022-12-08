@@ -19,7 +19,3 @@ def dfs(G, src, dest, visited, length):
             if dis < float('inf'):
                 min_dis = min(min_dis, dis + dic['length'])
     return min_dis
-
-
-path_len = dfs(G, 1839271812, 668727077,[], 0)
-print(path_len)
