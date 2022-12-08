@@ -102,7 +102,7 @@ export const InputFields = () => {
 
   return (
     <div data-testid="input-fields">
-      <Modal open={isDisabled} title="Fetch path details..." footer={null} closable={false}/>
+      <Modal open={isDisabled} title="Please wait !! Fetching path details..." footer={null} closable={false}/>
       <Modal open={isSameCity} 
       title="Please perform search in the same city." 
       cancelButtonProps={{ style: {"display": "none"} }} onOk={() => setSameCity(false)}/>
