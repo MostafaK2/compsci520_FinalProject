@@ -1,7 +1,8 @@
-from controller.bfs import perform_bfs
-from controller.dijkstraElev import dijkstra_elev
-from controller.dijkstra import dijkstra
-from controller.astar import astar
+from bfs import perform_bfs
+from dfs import dfs
+from dijkstraElev import dijkstra_elev
+from dijkstra import dijkstra
+from astar import astar
 import osmnx as ox
 import numpy as np
 from geopy.geocoders import Nominatim
@@ -79,6 +80,10 @@ def get_shortest_path_helper(src_point, dest_point, filename):
     routes = perform_bfs(graph, src_node, dest_node)
     print("Bfs Time: ", time.time()-start_bfs_time)
     print("Bfs Route: ", routes)
+    start_dfs_time = time.time()
+    routes = dfs(graph, src_node, dest_node)
+    print("Dfs Time: ", time.time()-start_dfs_time)
+    print("Dfs Route: ", routes)
     start_dijkstra_time = time.time()
     routes = dijkstra(graph, src_node, dest_node)
     print("Dijkstra Time: ", time.time()-start_dijkstra_time)
