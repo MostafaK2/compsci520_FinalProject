@@ -14,6 +14,32 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
+const get_distance = (from, to)  => {
+  let fromLatLng = L.latLng(from);
+  let toLatLng = L.latLng(to);
+
+  return fromLatLng.distanceTo(toLatLng);
+}
+
+const getLineMarkers = (all_markers) => {
+  if(all_markers.length === 0) return [];
+
+  let markers = []
+  markers.push(all_markers[0]);
+
+  for (let i = 1; i < all_markers.length-1; i++) {
+    const dist = get_distance(all_markers[i], markers[markers.length-1]);
+    // console.log(dist);
+    if(dist > 500) {
+      console.log(dist)
+      markers.push(all_markers[i]);
+    }
+  }
+  markers.push(all_markers[all_markers.length-1])
+
+  return markers;
+}
+
 export const Map = () => {
   const [zoomLocation, setZoomLocation] = useState([42.3754, -72.5193]);
   const [markers, setMarkers] = useState({ startMarker: [], endMarker: [] });
@@ -68,9 +94,9 @@ export const Map = () => {
           position={markers.endMarker}
         />
       )}
-      {/* {
-        polyline.map((ele, key) => <Marker position={ele} key={key}/>)
-      } */}
+      {
+        getLineMarkers(polyline).map((ele, key) => <Marker position={ele} key={key}/>)
+      }
       <Polyline pathOptions={blackOptions} positions={polyline} />
     </MapContainer>
   );

@@ -12,8 +12,6 @@ def save_graph(place, filename):
         writer_object.writerow([filename])
         myfile.close()
 
-
-
 def check_graph_present(filename):
     print(filename)
     with open("./data/allgraphs.csv") as f:

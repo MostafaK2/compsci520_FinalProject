@@ -3,7 +3,6 @@ from controller.dijkstraElev import dijkstra_elev
 from controller.dijkstra import dijkstra
 from controller.astar import astar
 import osmnx as ox
-import networkx as nx
 import numpy as np
 from geopy.geocoders import Nominatim
 import time
@@ -118,7 +117,8 @@ def get_details(src_point, dest_point):
         dest_city = location_dest.raw['address']['town']
     else:
         dest_city = location_dest.raw['address']['city']
-
+    print(src_city, dest_city, src_state, dest_state, src_country, dest_country)
+    
     if(src_country != dest_country or src_state != dest_state or src_city != dest_city):
         return "", "", ""
     else:
