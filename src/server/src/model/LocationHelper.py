@@ -8,6 +8,7 @@ def get_details(src_point, dest_point):
     dest_country = location_dest.raw['address']['country']
     src_state = location_src.raw['address']['state']
     dest_state = location_dest.raw['address']['state']
+    # print(location_dest.raw['address'], location_src.raw['address'])
     if ("town" in location_src.raw['address'].keys()):
         src_city = location_src.raw['address']['town']
     else:

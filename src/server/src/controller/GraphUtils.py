@@ -26,15 +26,15 @@ def get_shortest_path_helper(src_point, dest_point, filename):
     start_dijkstra_time = time.time()
     routes = dijkstra(graph, src_node, dest_node)
     print("Dijkstra Time: ", time.time()-start_dijkstra_time)
-    print("Dijkstra Route: ", routes)
+    # print("Dijkstra Route: ", routes)
     start_astar_time = time.time()
     routes = astar(graph, src_node, dest_node)
     print("Astar time: ", time.time()-start_astar_time)
-    print("Astar Route: ", routes)
+    # print("Astar Route: ", routes)
     start_osmnx_time = time.time()
     routes = ox.shortest_path(graph, src_node, dest_node, weight="length")
     print("Osmnx Time: ", time.time()-start_osmnx_time)
-    print("Osmnx Route: ", routes)
+    # print("Osmnx Route: ", routes)
 
     res = {}
     res['distance'] = str(round(getPathDistance(graph, routes), 4))
