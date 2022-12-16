@@ -1,8 +1,7 @@
 # ELeNA : Elevation based Navigation
 
 ## ELeNA
-/* Elevation-based Navigation (EleNa) is a map based application that gives the user a preferred route between any two points on the map that either minimizes or maximizes the elevation gain and is within “x%” of the shortest path possible where x is user specified.
-*/
+Elevation-based Navigation (EleNa) is a map based application that gives the user a preferred route between any two points on the map that either minimizes or maximizes the elevation gain and is within “x%” of the shortest path possible where x is user specified.
 
 ## Web Application*
 /* */<br>
