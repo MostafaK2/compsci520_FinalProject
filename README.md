@@ -24,6 +24,8 @@
 `cd ./src/server`
 * (Optional) Instead of installing the packages on the system, we can make a virtual environment and install the packages.<br>
 `python -m venv virtual_env`
+* Enter the virtual environment.<br>
+`source virtual_env/bin/activate`
 * Install the required packages.<br>
 `pip install -r requirements.txt`
 * Run the flask server.<br>
