@@ -1,6 +1,7 @@
 from flask import Flask, request
-from controller.GraphUtils import get_shortest_path, get_shortest_path_helper, get_details
-from utility import save_graph, check_graph_present
+from controller.GraphUtils import get_shortest_path, get_shortest_path_helper
+from model.LocationHelper import get_details
+from model.utility import save_graph, check_graph_present
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
@@ -32,7 +33,7 @@ def get_path():
 
     flag = int(flag)
 
-    file_name = "./data/"+(city+state+country).replace(' ', '')+".graphml"
+    file_name = "../data/"+(city+state+country).replace(' ', '')+".graphml"
     if(check_graph_present(file_name) == False):
         save_graph(city + ", " + state + ", " + country, file_name)
 

@@ -1,16 +1,12 @@
 import osmnx as ox
 import heapq
-import GraphUtils as gu
+from model.GraphMetrics import getDistance, getElevation, getPath, getTotalElevation, getPathDistance
 import warnings
 warnings.filterwarnings('ignore')
 
 
 def dijkstra_elev(G, start, end, percent, min_distance, max_ele=True):
-    # min_distance = gu.getPathDistance(G, route)
-    # print("min_dis ", min_distance)
-    # print(percent)
     percent += 100.0
-    # max_path_length = min_distance * (percent/100)
     possible_paths = {}
     floored_percent = (percent / 10.0) * 10.0
     epochs = []
@@ -18,7 +14,6 @@ def dijkstra_elev(G, start, end, percent, min_distance, max_ele=True):
     while (i <= floored_percent):
         epochs.append(i)
         i += 10
-        # print(i)
 
     for epoch in epochs:
         pat_len = float(min_distance) * epoch/100.0
@@ -36,9 +31,9 @@ def dijkstra_elev(G, start, end, percent, min_distance, max_ele=True):
                 if cost[cur] <= pat_len:
                     break
             for cur, nxt, data in G.edges(cur, data=True):
-                cur_cost = cost[cur] + gu.getDistance(G, cur, nxt)
+                cur_cost = cost[cur] + getDistance(G, cur, nxt)
                 cur_ecost = cost_ele[cur]
-                ecost = gu.getElevation(G, cur, nxt)
+                ecost = getElevation(G, cur, nxt)
                 if ecost > 0:
                     cur_ecost = cur_ecost + ecost
                 if nxt not in cost or cur_cost < cost[nxt]:
@@ -50,11 +45,8 @@ def dijkstra_elev(G, start, end, percent, min_distance, max_ele=True):
                         priority = cur_ecost
                     heapq.heappush(queue, (priority, nxt))
                     revPath[nxt] = cur
-        path = gu.getPath(revPath, start, end)
-        # print(gu.getTotalElevation(G, path))
-        possible_paths[gu.getTotalElevation(G, path)] = path
-
-    # print(possible_paths.keys())
+        path = getPath(revPath, start, end)
+        possible_paths[getTotalElevation(G, path)] = path
 
     min_path_len = 10 ** 6
     max_path_len = 0
@@ -72,8 +64,8 @@ def dijkstra_elev(G, start, end, percent, min_distance, max_ele=True):
 
     res = {}
     res['path'] = path
-    res['elevation'] = str(round(gu.getTotalElevation(G, path), 4))
-    res['distance'] = str(round(gu.getPathDistance(G, path), 4))
+    res['elevation'] = str(round(getTotalElevation(G, path), 4))
+    res['distance'] = str(round(getPathDistance(G, path), 4))
     return res
 
 
