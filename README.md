@@ -34,7 +34,7 @@ Elevation-based Navigation (EleNa) is a map based application that gives the use
 `npm start`
 
 ### Backend Application
-* Ensure python is installed on the system.
+* Ensure python is installed on the system, and the python version is >=3.10
 * Move to the project's backend directory.<br>
 `cd ./src/server/src`
 * (Optional) Instead of installing the packages on the system, we can make a virtual environment and install the packages.<br>
