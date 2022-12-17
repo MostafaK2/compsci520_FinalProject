@@ -10,7 +10,7 @@ class Pair(object):
     def __lt__(self, other):
         return self.weight < other.weight
 
-
+# function for dijkstra algorithm
 def dijkstra(G, src, dest):
     visited = set()
     new = Pair(src, 0, str(src))

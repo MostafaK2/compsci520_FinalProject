@@ -4,7 +4,7 @@ from model.GraphMetrics import getDistance, getElevation, getPath, getTotalEleva
 import warnings
 warnings.filterwarnings('ignore')
 
-
+# function for calculating route with minimum or maximum elevation using dijkstra within x% of shortest path
 def dijkstra_elev(G, start, end, percent, min_distance, max_ele=True):
     percent += 100.0
     possible_paths = {}

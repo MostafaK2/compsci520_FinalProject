@@ -5,6 +5,7 @@ import osmnx as ox
 from model.GraphMetrics import get_graph, get_node, get_lat_long, getPathDistance
 import time
 
+# get shortest path with preferred elevation
 def get_shortest_path(src_point, dest_point, percent, flag, filename):
     graph = get_graph(filename)
     src_node = get_node(graph, src_point)
@@ -18,6 +19,7 @@ def get_shortest_path(src_point, dest_point, percent, flag, filename):
     res['path'] = get_lat_long(graph, res['path'])
     return res
 
+# get shortest path without any elevation
 def get_shortest_path_helper(src_point, dest_point, filename):
     graph = get_graph(filename)
     src_node = get_node(graph, src_point)

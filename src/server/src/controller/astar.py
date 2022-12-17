@@ -3,6 +3,7 @@ from heapq import *
 import warnings
 warnings.filterwarnings('ignore')
 
+## astar algorithm function
 def astar(G, src, dest, min_elev = None):
     queue = [(0, src, 0, None)]
     visited = {}

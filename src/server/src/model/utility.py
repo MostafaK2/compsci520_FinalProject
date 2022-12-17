@@ -1,6 +1,7 @@
 import osmnx as ox
 import csv
 
+# wrtie graph for the place
 def save_graph(place, filename):
     G = ox.graph_from_place(place, network_type="drive")
     api_key = 'AIzaSyBZtVsQkxLlEp63rHfRCA1vXWSEverMKSs'
