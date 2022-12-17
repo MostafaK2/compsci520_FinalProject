@@ -3,14 +3,7 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  cleanup,
-  queryByTestId,
-} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { InputFields } from "../Components/InputFields";
 import { Slider, Input, Radio } from "antd";
 import userEvent from "@testing-library/user-event";
@@ -18,10 +11,6 @@ import { Container } from "../Store/Provider";
 
 jest.mock("antd", () => {
   const antd = jest.requireActual("antd");
-  const Select = (props) => {
-    const { testid, ...other } = props;
-    return <input data-testid={testid} {...other}></input>;
-  };
 
   const Slider = (props) => {
     return (
@@ -40,7 +29,6 @@ jest.mock("antd", () => {
   };
 });
 
-// failing because axios error
 test("InputField renders", () => {
   render(
     <Container.Provider>
@@ -65,7 +53,7 @@ test("initial configurations", () => {
   expect(screen.getByText("0 % Away from Shortest Path")).toBeInTheDocument();
 });
 
-test("test Start and Select works properly", async () => {
+test("test Start works properly", async () => {
   render(
     <Container.Provider>
       <InputFields />
@@ -76,11 +64,19 @@ test("test Start and Select works properly", async () => {
   await userEvent.type(selectStart[0], "Amherst");
 
   expect(selectStart[0]).toHaveValue("Amherst");
+});
 
-  // await waitFor(() => screen.getByText("Hampshire County"));
-  // fireEvent.click(
-  //   screen.getByText("Amherst, Hampshire County, Massachusetts, United States")
-  // );
+test("test Destination works properly", async () => {
+  render(
+    <Container.Provider>
+      <InputFields />
+    </Container.Provider>
+  );
+  const selectStart = screen.getAllByRole("combobox");
+  await fireEvent.click(selectStart[1]);
+  await userEvent.type(selectStart[1], "Amherst");
+
+  expect(selectStart[1]).toHaveValue("Amherst");
 });
 
 test("test sliders changes properly", async () => {

@@ -108,7 +108,7 @@ export const InputFields = () => {
       cancelButtonProps={{ style: {"display": "none"} }} onOk={() => setSameCity(false)}/>
       <div className="feature_block">
         <Select
-          data-testid="start"
+          testid="start"
           showSearch
           value={startValue}
           placeholder="Start"
